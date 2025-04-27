@@ -1,0 +1,102 @@
+{
+  "name": "browserx",
+  "displayName": "BrowserX",
+  "publisher": "RidhamSavaliya",
+  "description": "A powerful browser extension with Google Custom Search integration",
+  "version": "0.0.1",
+  "icon":"images/icon.png",
+  "engines": {
+    "vscode": "^1.60.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": [
+    "onStartupFinished"
+  ],
+  "main": "./out/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "browserx.openSearch",
+        "title": "BrowserX: Open Search"
+      },
+      {
+        "command": "browserx.searchSelectedText",
+        "title": "BrowserX: Search Selected Text"
+      },
+      {
+        "command": "browserx.searchInBrowser",
+        "title": "BrowserX: Search in Google"
+      },
+      {
+        "command": "browserx.searchInBrowserX",
+        "title": "BrowserX: Search in BrowserX"
+      }
+    ],
+    "menus": {
+      "editor/context": [
+        {
+          "command": "browserx.searchInBrowser",
+          "group": "navigation",
+          "when": "editorHasSelection"
+        },
+        {
+          "command": "browserx.searchInBrowserX",
+          "group": "navigation",
+          "when": "editorHasSelection"
+        }
+      ]
+    },
+    "configuration": {
+      "title": "BrowserX",
+      "properties": {
+        "browserx.apiKey": {
+          "type": "string",
+          "default": "",
+          "description": "Google API Key for Custom Search"
+        },
+        "browserx.searchEngineId": {
+          "type": "string",
+          "default": "",
+          "description": "Google Custom Search Engine ID (CX)"
+        }
+      }
+    }
+  },
+  "repository": {
+  "type": "git",
+  "url": "https://github.com/Ridham-Savaliya/google-search-pro-vs-extension.git"
+},
+
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./",
+    "pretest": "npm run compile && npm run lint",
+    "lint": "eslint src --ext ts",
+    "test": "node ./out/test/runTest.js",
+    "dev": "npm run watch & npm run watch:webview",
+    "watch:webview": "nodemon --watch webview-ui --exec \"npm run compile\""
+  },
+  "dependencies": {
+    "axios": "^0.21.1",
+    "googleapis": "^39.2.0"
+  },
+  "devDependencies": {
+    "@types/vscode": "^1.60.0",
+    "@types/glob": "^7.1.3",
+    "@types/mocha": "^8.2.2",
+    "@types/node": "14.x",
+    "@vscode/test-electron": "^2.3.8",
+    "eslint": "^7.27.0",
+    "@typescript-eslint/eslint-plugin": "^4.26.0",
+    "@typescript-eslint/parser": "^4.26.0",
+    "glob": "^7.1.7",
+    "mocha": "^8.4.0",
+    "typescript": "^4.3.2",
+    "vscode-test": "^1.5.2",
+    "nodemon": "^2.0.15",
+    "@types/axios": "^0.14.0"
+  }
+} 
