@@ -1,6 +1,6 @@
 # BrowserX - VS Code Extension
 
-A powerful browser extension for VS Code that integrates Google Custom Search for both web and image searches.
+A powerful browser extension for VS Code that integrates Google Custom Search for both web and image searches right in the VS CODE IDE.
 
 ## Features
 
